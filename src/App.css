@@ -1,38 +1,50 @@
-.App {
-  text-align: center;
+@import '~antd/dist/antd.css';
+
+.ant-page-header {
+  background-color: #131921;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.ant-page-header-heading{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: left;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.searchBar {
+  margin-top: 4px;
+  width: calc(100vw - 550px);
+}
+
+.ant-input-search-button{
+  background-color: #fdb13f;
+  border-color: #fdb13f;
+}
+
+.ant-input-search-button:hover{
+  background-color: #FF9900;
+  border-color: #FF9900;
+  cursor: pointer;
+}
+
+.login{
+  padding: 3px 30px;
+  font-weight: bold;
+  background-color: #fdb13f ;
+  border-color: #fdb13f;
+  border: solid 2px #fdb13f;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.login:hover{
+  background-color: #FF9900;
+  border: solid 2px white;
+  color: white;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.login:focus{
+  background-color: #FF9900;
+  border: solid 2px white;
+  color: white;
 }
