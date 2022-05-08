@@ -1,33 +1,37 @@
 import { PageHeader, Button, Input, Space, Badge } from 'antd';
 import { useMoralis } from "react-moralis";
-import './Header.css'
 import { Link } from 'react-router-dom';
-import Amazon from '../images/logo.png';
-import BookStore from '../images/bookstore.png';
-import USA from '../images/usa.png';
+import './Header.css'
+import Amazon from "../images/logo.png";
+import USA from "../images/usa.png";
+import BookStore from "../images/bookstore.png";
 import {ShoppingCartOutlined, MenuOutlined} from "@ant-design/icons";
 
-const {Search} = Input;
+const {Search } = Input;
 const categories = ["Comics", "Dictionaries", "Novels", "Fantasy", "Horror", "Adventure"];
 
 const Header = () => {
-  const { authenticate } = useMoralis();
+  const { authenticate, account } = useMoralis();
   return(
     <div className="site-page-header-ghost-wrapper">
       <PageHeader
         ghost={false}
         extra={[
           <>
-          <img src={Amazon} className="logo" alt="logo" />
-          <img src={BookStore} className="logo" alt="logo" />
+          <img src={Amazon} alt=""className="logo"></img>
+          <img src={BookStore} alt="" className="logo"></img>
           <Search
-          placeholder="Find a product"
-          enterButton
-          className="searchBar"/>
-         <Button className="login" key="1" type="primary" onClick={() => authenticate()}>
-          Login
+              placeholder="Find A Product"
+              enterButton
+              className = "searchBar"
+            />
+         <Button 
+         className="login"
+         key="1" 
+         type="primary" 
+         onClick={() => authenticate()}>
+          {account ? <span>{account.slice(0,5)}...</span> : <span>login</span>}
           </Button>
-
           <Space size={"large"}>
               
               <Badge count={0} showZero>
@@ -44,7 +48,6 @@ const Header = () => {
           </>
         ]}>
       </PageHeader>
-
       <div className="site-page-subheader-ghost-wrapper">
       <Space size={"middle"}>
         <Space size={"small"} style={{fontWeight:"bold"}}>
